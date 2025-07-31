@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oscillation Simulator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="controls">
+      <h2>Модель:</h2>
+      <select id="modelSelect">
+        <option value="oscillator">1. Гармонічний осцилятор</option>
+        <option value="forced">2. Вимушені коливання</option>
+        <option value="friction">3. Коливання з тертям</option>
+        <option value="resistance">4. Опір (лінійний)</option>
+        <option value="nonlinear">5. Нелінійне тертя</option>
+        <option value="beat">6. Биття</option>
+      </select>
+
+      <div id="commonControls">
+        <label>Маса (m): <input type="number" id="mass" value="1" step="0.1" /></label>
+        <label>Жорсткість (k): <input type="number" id="springConst" value="1" step="0.1" /></label>
+        <label>Початкова позиція (x₀): <input type="number" id="initialX" value="50" /></label>
+        <label>Початкова швидкість (v₀): <input type="number" id="initialV" value="0" /></label>
+      </div>
+
+      <div id="forcedControls">
+        <label>Амплітуда сили (F₀): <input type="number" id="forceAmp" value="50" /></label>
+        <label>Частота (ω): <input type="number" id="omega" value="1" step="0.01"/></label>
+      </div>
+
+      <div id="frictionControls">
+        <label>Тертя вперед (k₁): <input type="number" id="frictionCoeff" value="0.5" /></label>
+      </div>
+
+      <div id="resistanceControls">
+        <label>μ (опір): <input type="number" id="mu" value="0.2" step="0.01"/></label>
+      </div>
+
+      <div id="nonlinearControls">
+        <label>μ (нелінійне): <input type="number" id="muNonlinear" value="0.01" /></label>
+      </div>
+
+      <div id="beatControls">
+        <label>f₁ (перша частота): <input type="number" id="f1" value="1" step="0.01"/></label>
+        <label>f₂ (друга частота): <input type="number" id="f2" value="1.05" step="0.01"/></label>
+        <label>Амплітуда: <input type="number" id="beatAmplitude" value="50" /></label>
+      </div>
+
+      <button onclick="resetSimulation()">Скинути</button>
+      <button onclick="saveGraph()">Зберегти графік (PNG)</button>
+<div style="margin-top: 10px;">
+  <label for="speedRange">Швидкість симуляції:</label>
+  <input type="range" id="speedRange" min="0.01" max="0.2" step="0.01" value="0.05">
+  <span id="speedValue">0.05</span> с/крок
+</div>
+    </div>
+
+
+
+    <div class="canvasContainer">
+      <canvas id="mainCanvas" width="600" height="200"></canvas>
+      <canvas id="graphCanvas" width="900" height="300"></canvas>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
