@@ -17,37 +17,61 @@ The simulation displays the movement of the ball in real time and builds the cor
 
 ---
 
-## Реалізовані моделі коливань
+## Реалізовані моделі коливань/Implemented vibration models
+
 | Модель                   | Фізичний зміст                                                            |   |                                            |
 | ------------------------ | ------------------------------------------------------------------------- | - | ------------------------------------------ |
 | 1. Гармонічний осцилятор | $a = -\frac{kx}{m}$ — класичні пружинні коливання                         |   |                                            |
 | 2. Вимушені коливання    | $a = \frac{-kx + F_0 \cos(\omega t)}{m}$ — коливання з зовнішньою силою   |   |                                            |
 | 3. Тертя (знакове)       | $a = \frac{-kx - k_1 \cdot \text{sign}(v)}{m}$ — сухе (асиметричне) тертя |   |                                            |
 | 4. Опір (лінійний)       | $a = \frac{-kx - \mu v}{m}$ — лінійне згасання                            |   |                                            |
-| 5. Нелінійне тертя       | a = (-k * x - μ * v - k₁ * v * |v|) / m — залежність від квадрату швидкості  |   |                                            |
+| 5. Нелінійне тертя       | ( a = (-k * x - μ * v - k₁ * v * |v|) / m ) — залежність від квадрату швидкості  |   |                                            |
 | 6. Биття                 | $x(t) = A \sin(f_1 t) + A \sin(f_2 t)$ — інтерференція двох частот        |   |                                            |
 
+
+| Model                    | Physical meaning                                                                    |   |                                            |
+| ------------------------ | ----------------------------------------------------------------------------------- | - | ------------------------------------------ |
+| 1. Harmonic oscillator   | $a = -\frac{kx}{m}$ — classical spring oscillations                                 |   |                                            |
+| 2. Forced oscillations   | $a = \frac{-kx + F_0 \cos(\omega t)}{m}$ — oscillations with an external force      |   |                                            |
+| 3. Friction (sign)       | $a = \frac{-kx - k_1 \cdot \text{sign}(v)}{m}$ — dry (asymmetric) friction          |   |                                            |
+| 4. Resistance (linear)   | $a = \frac{-kx - \mu v}{m}$ — linear damping                                        |   |                                            |
+| 5. Nonlinear friction    | ( a = (-k * x - μ * v - k₁ * v * |v|) / m ) — dependence on the square of velocity  |   |                                            |
+| 6. Beating               | $x(t) = A \sin(f_1 t) + A \sin(f_2 t)$ — interference of two frequencies            |   |                                            |
 
 
 ## Параметри / Parameters
 
 Інтерфейс дозволяє змінювати наступні параметри:
 
-- `m` — маса (кг)  
+- `x` — початкова координата (м)  
+- `v` — початкова швидкість (м/с)  
+- `t` — початковий момент часу (с)  
+- `m` — маса об’єкта (кг)  
 - `k` — жорсткість пружини (Н/м)  
-- `x0` — початкова координата (м)  
-- `v0` — початкова швидкість (м/с)  
-- `t_max` — тривалість симуляції (с)  
-- `dt` — часовий крок інтегрування (с)
+- `F0` — амплітуда зовнішньої сили (Н)  
+- `omega` — циклічна частота зовнішньої сили (рад/с)  
+- `k1` — коефіцієнт квадратичного опору (Н·с²/м²)  
+- `mu` — коефіцієнт лінійного тертя (Н·с/м)  
+- `f1` — сила тертя при русі вправо (Н)  
+- `f2` — сила тертя при русі вліво (Н)  
+- `amplitude` — амплітуда коливань (м)  
+- `dt` — крок інтегрування за часом (с)
 
 The interface allows adjusting the following parameters:
 
-- `m` — mass (kg)  
+- `x` — initial coordinate (m)
+- `v` — initial velocity (m/s)
+- `t` — initial time (s)
+- `m` — mass of the object (kg)
 - `k` — spring stiffness (N/m)  
-- `x0` — initial position (m)  
-- `v0` — initial velocity (m/s)  
-- `t_max` — simulation time (s)  
-- `dt` — time step (s)
+- `F0` — amplitude of external force (N)  
+- `omega` — cyclic frequency of external force (rad/s)  
+- `k1` — coefficient of quadratic resistance (N·s²/m²)  
+- `mu` — coefficient of linear friction (N·s/m)  
+- `f1` — friction force when moving to the right (N)
+- `f2` — friction force when moving to the left (N)
+- `amplitude` — amplitude of oscillations (m)
+- `dt` — time integration step (s)
 
 ---
 
