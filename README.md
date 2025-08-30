@@ -1,3 +1,5 @@
+![Codewars](https://www.codewars.com/users/Roman-webbit/badges/large)
+
 # Oscillator_Sim
 
 # Гармонічний осцилятор / Harmonic Oscillator
